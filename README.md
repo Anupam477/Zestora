@@ -1,29 +1,38 @@
-# Zestora — Haute Cuisine & Fine Dining Full-Stack Platform
+# 🍽️ Zestora — Fine Dining & Restaurant Full-Stack Platform
 
-A modern, production-grade **Full-Stack Restaurant Web Application** built with **React 18, Vite, Tailwind CSS, Node.js, Express.js, and MongoDB**.
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-24-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-4.21-000000?logo=express&logoColor=white)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Transformed from a static legacy template into an enterprise-level commercial platform featuring online ordering, cart persistence, coupon engine, 7-stage live order tracking timeline, online table reservations with automated confirmation codes, customer dashboards, and a complete administrator console with business analytics.
+A modern, production-grade **Full-Stack Restaurant Web Application** built with **React 18, Vite, Tailwind CSS, Node.js, Express, and MongoDB**. 
+
+Zestora provides an end-to-end dining experience featuring interactive menu discovery, dietary filters, online ordering with cart persistence, promo coupon discounts, a 7-stage live visual order tracking timeline, table reservations with confirmation code lookups, personal customer portals, and an administrative operations dashboard with real-time analytics.
+
+---
+
+## 🔗 Project Links
+
+- **Repository**: [https://github.com/Anupam477/Zestora](https://github.com/Anupam477/Zestora)
+- **Live Demo**: [https://zestora-dining.vercel.app](https://zestora-dining.vercel.app)
 
 ---
 
 ## 🏛️ Project Architecture
 
 ```
-restoran-1.0.0/
-│
-├── client/                           # React + Vite + Tailwind Frontend
+Zestora/
+├── client/                     # React 18 + Vite + Tailwind CSS Frontend
 │   ├── public/
-│   │   ├── img/                      # Preserved & optimized culinary photography
-│   │   └── favicon.svg
+│   │   └── img/                # High-resolution culinary photography
 │   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   │   ├── common/               # Navbar, Footer, Modal, Toast, SectionHeader, Spinner
-│   │   │   ├── menu/                 # MenuCard, FoodDetailModal
-│   │   │   └── cart/                 # CartDrawer
-│   │   ├── context/                  # AuthContext, CartContext, ToastContext
-│   │   ├── layouts/                  # MainLayout
-│   │   ├── pages/                    # 16 Production Pages
+│   │   ├── components/         # Modular UI components (Navbar, Footer, Modals, Cards)
+│   │   ├── context/            # AuthContext, CartContext, ToastContext
+│   │   ├── layouts/            # MainLayout and navigation wrappers
+│   │   ├── pages/              # 16 Production Pages
 │   │   │   ├── Home.jsx
 │   │   │   ├── About.jsx
 │   │   │   ├── Menu.jsx
@@ -32,254 +41,156 @@ restoran-1.0.0/
 │   │   │   ├── Checkout.jsx
 │   │   │   ├── Reservation.jsx
 │   │   │   ├── OrderTracking.jsx
-│   │   │   ├── Gallery.jsx
-│   │   │   ├── Testimonials.jsx
-│   │   │   ├── Contact.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
 │   │   │   ├── CustomerDashboard.jsx
 │   │   │   ├── AdminDashboard.jsx
-│   │   │   └── NotFound.jsx
-│   │   ├── services/                 # api.js client SDK
-│   │   ├── App.jsx                   # Central routing & protected route guards
-│   │   ├── main.jsx
-│   │   └── index.css                 # Custom luxury styling and scrollbars
-│   ├── index.html
-│   ├── vite.config.js                # Vite config with API proxy
-│   ├── tailwind.config.js            # Custom color schemes, typography & shadows
+│   │   │   ├── Login.jsx
+│   │   │   └── ...
+│   │   ├── services/           # Axios/Fetch API client SDK
+│   │   ├── App.jsx             # React Router routing & protected route guards
+│   │   └── index.css           # Custom styling and animations
+│   ├── vite.config.js
+│   ├── tailwind.config.js
 │   └── package.json
 │
-├── server/                           # Node.js + Express + MongoDB REST API
-│   ├── config/
-│   │   └── db.js                     # Mongoose connection logic
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── menuController.js
-│   │   ├── orderController.js
-│   │   ├── reservationController.js
-│   │   ├── reviewController.js
-│   │   └── adminController.js
-│   ├── middleware/
-│   │   ├── auth.js                   # JWT verification & role authorization
-│   │   └── errorHandler.js           # Centralized API error handling
-│   ├── models/
-│   │   ├── User.js                   # User auth & bcrypt password hashing
-│   │   ├── Category.js               # Category schema
-│   │   ├── MenuItem.js               # Rich culinary details & nutritional stats
-│   │   ├── Order.js                  # 7-stage order status history
-│   │   ├── Reservation.js            # Table booking registry
-│   │   ├── Review.js                 # Testimonials
-│   │   └── Coupon.js                 # Promotional discounts
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── menuRoutes.js
-│   │   ├── orderRoutes.js
-│   │   ├── reservationRoutes.js
-│   │   ├── reviewRoutes.js
-│   │   └── adminRoutes.js
-│   ├── seed/
-│   │   └── seedData.js               # Comprehensive realistic database seeder
-│   ├── server.js                     # Express app, Helmet, CORS, Morgan
+├── server/                     # Node.js + Express + MongoDB REST API
+│   ├── config/                 # Database connection & auto-fallback engine
+│   ├── controllers/            # Auth, Menu, Order, Reservation, Admin controllers
+│   ├── middleware/             # JWT auth guards, admin authorization, error handling
+│   ├── models/                 # Mongoose schemas (User, MenuItem, Order, Reservation, Coupon, Review)
+│   ├── routes/                 # Express API routes
+│   ├── seed/                   # Database seeding script with realistic culinary items
+│   ├── server.js               # Central server entrypoint
 │   └── package.json
 │
-├── .env.example                      # Environment variable templates
+├── vercel.json                 # Vercel deployment configuration
+├── .env.example
 ├── .gitignore
+├── package.json                # Root workspace orchestration scripts
 └── README.md
 ```
 
 ---
 
-## ⚡ Technologies Used
+## ✨ Features
 
-### Frontend
-- **React 18** (Modern functional components & Hooks)
-- **Vite 5** (Ultra-fast HMR and optimized production bundling)
-- **React Router v6** (Nested routes, layout outlets, and protected route guards)
-- **Tailwind CSS v3** (Custom luxury color palettes, typography, and responsive grids)
-- **Lucide React** (Clean, modern iconography)
-- **Framer Motion** & Custom CSS Animations (Spinning plate hero, card micro-interactions)
+### 1. Interactive Gourmet Menu
+- **Search & Filter**: Real-time search across dish names, ingredients, and categories (Starters, Main Course, Indian Specialties, Artisan Pizza, Gourmet Burgers, Desserts, Beverages).
+- **Dietary Indicators**: Vegetarian vs. Non-Vegetarian tags, spice intensity meter (levels 0 to 3), and nutritional breakdowns (calories, protein, carbs, fat).
+- **Dynamic Sorting**: Filter by price (Low to High, High to Low), highest customer rating, or chef recommendations.
 
-### Backend
-- **Node.js v24** & **Express.js**
-- **MongoDB** & **Mongoose ODM**
-- **JSON Web Tokens (JWT)** for stateless, secure session authorization
-- **Bcrypt.js** (Salted password hashing, never storing plaintext passwords)
-- **Helmet** (HTTP security headers with cross-origin resource policy)
-- **CORS** (Cross-origin resource sharing configuration)
-- **Morgan** (Development request logging)
+### 2. Cart & Promotional Coupons
+- **Slide-Over Cart Drawer**: Global access across every screen with automatic `localStorage` synchronization.
+- **Coupon Discount Engine**: 
+  - `WELCOME10` — 10% discount on entire order
+  - `FEAST20` — 20% discount on orders over $50
+  - `FREESHIP` — Free shipping waiver
+- Dynamic tax computation (5% GST) and automatic complimentary delivery threshold.
 
----
+### 3. Checkout & 7-Stage Order Tracking
+- Streamlined checkout flow supporting delivery address input and Cash on Delivery / Card simulation.
+- Generates unique order tracking numbers (`ORD-YYYY-XXXXX`).
+- **Live Timeline**: Visual state progress tracker (`PLACED` → `CONFIRMED` → `PREPARING` → `READY` → `OUT_FOR_DELIVERY` → `DELIVERED`).
 
-## 💎 Implemented Features
+### 4. Table Reservations
+- Interactive guest count selector (1 to 20 guests), date picker, and special occasion requests.
+- Automatic reservation confirmation code generation (`RES-XXXXXX`).
+- Real-time booking lookup utility for guests to verify reservation and table assignments.
 
-1. **Complete Project Redesign**:
-   - Transformed generic Bootstrap layout into a sleek, midnight-slate and saffron-gold luxury aesthetic with typography matching high-end Michelin establishments.
-2. **Interactive Smart Menu**:
-   - Real-time search across dish names, ingredients, and categories.
-   - Filter pills: All, Starters, Main Course, Indian Specialities, Artisan Pizza, Gourmet Burgers, Desserts, Beverages.
-   - Vegetarian / Non-Vegetarian toggle filters.
-   - Spicy indicator with heat level (0 to 3).
-   - Multi-option sorting (Price: Low to High, Price: High to Low, Highest Rated, Recommended).
-3. **Food Details & Nutrition**:
-   - Modal and standalone detail pages showing high-res imagery, artisanal ingredients, prep time, calories, and macronutrient breakdowns (protein, carbs, fat).
-4. **Live Persistent Cart & Coupons**:
-   - Slide-over drawer cart accessible from anywhere in the app with live item count badge in navbar.
-   - LocalStorage synchronization.
-   - Promotional coupon engine (`WELCOME10` for 10% off, `FEAST20` for 20% off over $50, `FREESHIP` for $5 off).
-   - Dynamic tax (5% GST) and delivery fee waiver (free delivery on orders over $50).
-5. **Checkout & Order Creation**:
-   - Full delivery address form with validation.
-   - Payment method toggle (Cash on Delivery / Credit Card).
-   - Instant order number generation (`ORD-YYYY-XXXXX`).
-6. **7-Stage Live Order Tracking**:
-   - Real-time visual timeline (`PLACED` → `CONFIRMED` → `PREPARING` → `READY` → `OUT_FOR_DELIVERY` → `DELIVERED` or `CANCELLED`).
-   - Detailed status history log with admin notes and timestamps.
-7. **Online Table Reservation System**:
-   - Interactive date/time picker, guest count selector (1–20 people), and special requests.
-   - Backend validation preventing past dates.
-   - Generates unique reservation codes (e.g. `RES-K7X92A`).
-   - Built-in reservation lookup tool to check table assignments.
-8. **Authentication & Authorization**:
-   - Registration with automatic login.
-   - Login with JWT stored securely in client.
-   - Role-based access control (`customer` vs `admin`).
-   - 1-Click Demo Login buttons for easy reviewer testing.
-9. **Customer Dashboard**:
-   - Profile management and default delivery address updates.
-   - Complete order history with live status badges.
-   - Past and upcoming table reservations list.
-10. **Executive Admin Dashboard**:
-    - **KPI Metrics**: Total orders, today's orders, revenue counter, active kitchen orders, pending reservations.
-    - **Order Management**: Status dropdown update with live DB synchronization.
-    - **Menu Catalogue CRUD**: Add new dish modal, edit existing dishes, toggle availability, change prices, delete dishes.
-    - **Reservations Management**: Approve, reject, or assign table numbers.
-    - **Customer Directory**: View registered customer emails, phone numbers, and default addresses.
-
----
-
-## 🔌 API Endpoint Reference
-
-| Method | Endpoint | Description | Access |
-|---|---|---|---|
-| `POST` | `/api/auth/register` | Register new customer account | Public |
-| `POST` | `/api/auth/login` | Login and receive JWT token | Public |
-| `GET` | `/api/auth/me` | Fetch authenticated profile | Private (User) |
-| `PUT` | `/api/auth/profile` | Update profile and address | Private (User) |
-| `GET` | `/api/menu` | Browse menu with query filters & search | Public |
-| `GET` | `/api/menu/:id` | Get single dish details | Public |
-| `GET` | `/api/menu/featured` | Get signature dishes | Public |
-| `GET` | `/api/categories` | Get active category list | Public |
-| `POST` | `/api/reservations` | Create a new table reservation | Public / User |
-| `GET` | `/api/reservations/lookup/:code` | Check reservation by confirmation code | Public |
-| `GET` | `/api/reservations/my` | Get user's own reservations | Private (User) |
-| `POST` | `/api/orders` | Place a new order | Public / User |
-| `GET` | `/api/orders/track/:orderNumber` | Live order status tracking | Public |
-| `GET` | `/api/orders/my` | Get user's past order history | Private (User) |
-| `POST` | `/api/orders/validate-coupon` | Validate promo code and calculate discount | Public |
-| `GET` | `/api/reviews` | Get client testimonials | Public |
-| `POST` | `/api/reviews` | Post a client testimonial | Public |
-| `GET` | `/api/admin/stats` | Analytics KPIs & revenue telemetry | Private (Admin) |
-| `GET` | `/api/admin/orders` | List all orders with filters | Private (Admin) |
-| `PATCH`| `/api/admin/orders/:id/status`| Update order status in timeline | Private (Admin) |
-| `GET` | `/api/admin/reservations` | List all table bookings | Private (Admin) |
-| `PATCH`| `/api/admin/reservations/:id/status`| Update reservation & table | Private (Admin) |
-| `POST` | `/api/admin/menu` | Create a new menu dish | Private (Admin) |
-| `PUT` | `/api/admin/menu/:id` | Edit an existing dish | Private (Admin) |
-| `DELETE`| `/api/admin/menu/:id` | Delete a dish from the menu | Private (Admin) |
-| `GET` | `/api/admin/customers` | View customer roster | Private (Admin) |
+### 5. Role-Based Dashboards & Security
+- **JWT Authentication**: Secure password hashing with `bcryptjs` and stateless bearer token authorization.
+- **Customer Dashboard**: Track ongoing orders, review past dining bookings, and manage delivery addresses.
+- **Admin Dashboard**: Real-time sales statistics, revenue counter, order status updating, reservation approval, and full menu CRUD management.
 
 ---
 
 ## 🔑 Demo Credentials
 
-| Role | Email | Password |
-|---|---|---|
-| **Administrator** | `admin@zestora.com` | `AdminPassword123!` |
-| **Customer** | `customer@zestora.com` | `CustomerPassword123!` |
+Test accounts are pre-configured in the database and accessible directly via **1-click buttons** on the Login page (`/login`):
 
-*(Both accounts are pre-filled on the login screen with 1-click convenience buttons)*
+| Role | Email | Password | Dashboard Route |
+|---|---|---|---|
+| **Administrator** | `admin@zestora.com` | `AdminPassword123!` | `/admin` |
+| **Customer** | `customer@zestora.com` | `CustomerPassword123!` | `/dashboard` |
 
 ---
 
-## 🚀 How to Run the Application Locally
+## 🚀 Quick Start (Run Locally)
 
 ### Prerequisites
-- **Node.js** (v18 or higher; tested on Node v24)
-- **MongoDB** (Local instance running on `mongodb://127.0.0.1:27017` or MongoDB Atlas URI)
+- **Node.js** (v18 or higher recommended)
+- **MongoDB** *(Optional — a zero-config embedded database automatically activates if external MongoDB is not detected)*
 
-### 1. Backend Setup
+### 1. Clone the Repository
 ```bash
-# Navigate to server directory
-cd server
+git clone https://github.com/Anupam477/Zestora.git
+cd Zestora
+```
 
-# Install dependencies (if not already installed)
-npm install
+### 2. Install Dependencies
+Install dependencies for both client and server from the root:
+```bash
+npm run install:all
+```
 
-# Seed the database with gourmet menu items, categories, demo users, and coupons
-node seed/seedData.js
-
-# Start the backend server
-node server.js
-# Or start in watch mode
+### 3. Start Development Server
+```bash
+# Runs the backend API (with embedded DB) on port 5000:
 npm run dev
 ```
-The backend will run on **http://localhost:5000**.
 
-### 2. Frontend Setup
+In a second terminal window, run the Vite client:
 ```bash
-# Open a new terminal and navigate to client directory
-cd client
-
-# Install dependencies
-npm install
-
-# Start Vite development server
-npm run dev
+npm run dev:client
 ```
-The frontend will run on **http://localhost:5173**.
+- **Frontend**: [http://localhost:5173](http://localhost:5173)
+- **Backend API**: [http://localhost:5000](http://localhost:5000)
+
+### 4. Single-Command Production Start
+You can also run both the client and server bundled together from the backend on port 5000:
+```bash
+npm run build
+npm start
+```
+Visit **[http://localhost:5000](http://localhost:5000)** to view the full application.
 
 ---
 
-## 🌐 Production Deployment Guide
+## 🔌 Key API Endpoints
 
-### Deploying Frontend (Vercel / Netlify / Cloudflare Pages)
-1. Build the production bundle:
-   ```bash
-   cd client
-   npm run build
-   ```
-2. The output will be in `client/dist/`.
-3. Configure environment variable:
-   ```env
-   VITE_API_URL=https://your-production-backend.com/api
-   ```
-4. For single-page app routing on Netlify, add `client/public/_redirects`:
-   ```
-   /*    /index.html   200
-   ```
-
-### Deploying Backend (Render / Railway / AWS / DigitalOcean)
-1. Set the following environment variables on your cloud host:
-   ```env
-   PORT=5000
-   NODE_ENV=production
-   MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/restoran?retryWrites=true&w=majority
-   JWT_SECRET=your_super_secure_jwt_secret_key_production
-   JWT_EXPIRE=7d
-   CLIENT_URL=https://your-frontend-domain.com
-   ```
-2. Command to start:
-   ```bash
-   node server.js
-   ```
+| Method | Endpoint | Description | Access |
+|---|---|---|---|
+| `POST` | `/api/auth/register` | Register new customer account | Public |
+| `POST` | `/api/auth/login` | Login and receive JWT token | Public |
+| `GET` | `/api/auth/me` | Fetch authenticated profile | Private |
+| `GET` | `/api/menu` | Browse menu dishes with filter & search | Public |
+| `GET` | `/api/categories` | Get all active food categories | Public |
+| `POST` | `/api/orders` | Place a new food order | Public / User |
+| `GET` | `/api/orders/track/:orderNumber` | Live order timeline and status | Public |
+| `POST` | `/api/orders/validate-coupon` | Validate coupon code and compute discount | Public |
+| `POST` | `/api/reservations` | Reserve a dining table | Public / User |
+| `GET` | `/api/reservations/lookup/:code` | Check table booking status by code | Public |
+| `GET` | `/api/admin/stats` | Business telemetry & revenue metrics | Admin Only |
+| `PATCH`| `/api/admin/orders/:id/status`| Progress order status in live timeline | Admin Only |
+| `PATCH`| `/api/admin/reservations/:id/status`| Assign tables & manage reservations | Admin Only |
 
 ---
 
-## 🔒 Security Practices Implemented
-- **Password Protection**: Passwords salted and hashed with `bcryptjs` (10 rounds).
-- **JWT Protection**: Tokens signed with high-entropy secrets and expiration dates.
-- **Route Guards**: Dual middleware validation (`protect` for auth token, `adminOnly` checking role).
-- **Helmet**: Secures HTTP response headers and defends against clickjacking / XSS.
-- **CORS Configuration**: Configured allowed origins, headers, and HTTP methods.
-- **Data Sanitization & Validation**: Validation of emails, phone numbers, and reservation dates before database writes.
-- **Secure File Separation**: `.env` ignored from version control with `.env.example` provided.
+## 🌐 Deployment
+
+### Frontend (Vercel)
+1. Push repository to GitHub.
+2. Import project into Vercel and select root directory as `client`.
+3. Set Build Command to `npm run build` and Output Directory to `dist`.
+4. Add environment variable `VITE_API_URL` pointing to your hosted API.
+
+### Backend (Render / Railway / Cloud)
+1. Connect your repository to Render or Railway.
+2. Set Build Command: `cd server && npm install`.
+3. Set Start Command: `cd server && node server.js`.
+4. Configure environment variables (`MONGO_URI`, `JWT_SECRET`, `PORT=5000`).
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).

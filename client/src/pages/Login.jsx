@@ -48,7 +48,7 @@ export const Login = () => {
         {/* Demo Accounts Quick-Fill Helper */}
         <div className="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
           <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider text-center">
-            Portfolio Quick-Login Demo
+            Demo Credentials (1-Click Fill)
           </p>
           <div className="grid grid-cols-2 gap-2">
             <button

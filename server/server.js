@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
+const fs = require('fs');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
 
@@ -34,8 +35,11 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
 }
 
-// Serve static images from the existing img/ folder
-app.use('/img', express.static(path.join(__dirname, '../img')));
+// Serve static images
+const imagesPath = fs.existsSync(path.join(__dirname, '../client/public/img'))
+  ? path.join(__dirname, '../client/public/img')
+  : path.join(__dirname, '../client/dist/img');
+app.use('/img', express.static(imagesPath));
 
 // Mount API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
