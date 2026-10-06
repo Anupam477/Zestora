@@ -5,12 +5,13 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "dev:server": "cd server && npm run dev",
-    "dev:client": "cd client && npm run dev",
-    "build": "cd client && npm run build",
-    "seed": "cd server && npm run seed",
-    "install:server": "cd server && npm install",
-    "install:client": "cd client && npm install",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "seed": "npm --prefix server run seed",
+    "install:server": "npm install --prefix server",
+    "install:client": "npm install --prefix client",
     "install:all": "npm run install:server && npm run install:client"
   },
   "keywords": [
@@ -25,5 +26,8 @@
     "tailwind"
   ],
   "author": "Anupam",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
 }

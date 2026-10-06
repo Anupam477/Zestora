@@ -31,6 +31,9 @@ const connectDB = async () => {
     try {
       const { MongoMemoryServer } = require('mongodb-memory-server');
       mongodInstance = await MongoMemoryServer.create({
+        binary: {
+          version: '5.0.19',
+        },
         instance: {
           dbName: 'zestora_db',
         },
