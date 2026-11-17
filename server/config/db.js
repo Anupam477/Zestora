@@ -17,16 +17,26 @@ const checkAndSeedData = async () => {
 };
 
 const connectDB = async () => {
-  const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/zestora_db';
+  const uri = process.env.MONGO_URI;
+  if (!uri && process.env.NODE_ENV === 'production') {
+    console.log('[MongoDB]: No MONGO_URI provided in production. Using high-speed in-memory store for demo.');
+    return null;
+  }
+
+  const connectUri = uri || 'mongodb://127.0.0.1:27017/zestora_db';
   try {
-    const conn = await mongoose.connect(uri, {
-      serverSelectionTimeoutMS: 2500,
+    const conn = await mongoose.connect(connectUri, {
+      serverSelectionTimeoutMS: 3000,
     });
     console.log(`[MongoDB Connected]: ${conn.connection.host}/${conn.connection.name}`);
     await checkAndSeedData();
     return conn;
   } catch (error) {
     console.warn(`[MongoDB Warning]: External MongoDB offline (${error.message}).`);
+    if (process.env.NODE_ENV === 'production') {
+      console.log('[MongoDB]: Using resilient fallback in-memory store.');
+      return null;
+    }
     console.log(`[MongoDB]: Initializing embedded database engine...`);
     try {
       const { MongoMemoryServer } = require('mongodb-memory-server');
