@@ -178,7 +178,6 @@ exports.createOrder = async (req, res, next) => {
   }
 };
 
-// @desc Track order by order number
 // @route GET /api/orders/track/:orderNumber
 exports.trackOrder = async (req, res, next) => {
   try {
@@ -226,3 +225,6 @@ exports.getMyOrders = async (req, res, next) => {
     res.status(200).json({ success: true, count: 0, data: [] });
   }
 };
+
+exports.getOrderByNumber = exports.trackOrder;
+

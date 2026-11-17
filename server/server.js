@@ -44,7 +44,7 @@ app.use('/img', express.static(imagesPath));
 // Mount API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/menu', require('./routes/menuRoutes'));
-app.use('/api/categories', require('./controllers/menuController').getCategories);
+app.get('/api/categories', require('./controllers/menuController').getCategories);
 app.use('/api/reservations', require('./routes/reservationRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
